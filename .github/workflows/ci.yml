@@ -1,0 +1,29 @@
+---
+name: CI
+# yamllint disable-line rule:truthy
+on:
+  pull_request:
+
+jobs:
+  linux:
+    strategy:
+      fail-fast: false
+      matrix:
+        arch:
+          - denverton
+          - geminilake
+    runs-on: ubuntu-22.04
+    env:
+      SUFFIX: build-${{ matrix.arch }}
+    steps:
+      - name: Clone Repo
+        uses: actions/checkout@v4
+      - name: Build
+        run: date > ${{ env.SUFFIX }}
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.SUFFIX }}
+          path: ${{ env.SUFFIX }}
+          if-no-files-found: error
+          retention-days: 7
