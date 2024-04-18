@@ -41,6 +41,9 @@ jobs:
         id: release
         with:
           release-type: simple
+      - name: Clone Repo
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/checkout@v4
       - name: Download artifacts
         if: ${{ steps.release.outputs.release_created }}
         uses: actions/download-artifact@v4
