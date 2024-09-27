@@ -12,7 +12,7 @@ jobs:
         arch:
           - denverton
           - geminilake
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     env:
       SUFFIX: build-${{ matrix.arch }}
     steps:
