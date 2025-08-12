@@ -19,7 +19,7 @@ jobs:
       SUFFIX: build-${{ matrix.arch }}
     steps:
       - name: Clone Repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Build
         run: date > ${{ env.SUFFIX }}
       - name: Upload artifacts
@@ -43,7 +43,7 @@ jobs:
           release-type: simple
       - name: Clone Repo
         if: ${{ steps.release.outputs.release_created }}
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Download artifacts
         if: ${{ steps.release.outputs.release_created }}
         uses: actions/download-artifact@v5

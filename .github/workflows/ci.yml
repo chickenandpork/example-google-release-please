@@ -17,7 +17,7 @@ jobs:
       SUFFIX: build-${{ matrix.arch }}
     steps:
       - name: Clone Repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Build
         run: date > ${{ env.SUFFIX }}
       - name: Upload artifacts
