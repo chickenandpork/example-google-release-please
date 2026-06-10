@@ -37,7 +37,7 @@ jobs:
       pull-requests: write
     needs: [linux]
     steps:
-      - uses: googleapis/release-please@v17.8.0
+      - uses: googleapis/release-please@v17.9.0
         id: release
         with:
           release-type: simple
